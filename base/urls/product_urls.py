@@ -1,6 +1,6 @@
 from django.urls import path
 from base.views import product_views as views
-from rest_framework_simplejwt.views import (TokenObtainPairView)
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
 
@@ -17,3 +17,4 @@ urlpatterns = [
     path('delete/<str:pk>/', views.deleteProduct, name="product-delete"),
 ]
 
+urlpatterns += staticfiles_urlpatterns()

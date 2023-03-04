@@ -1,6 +1,6 @@
 from django.urls import path
 from base.views import user_views as views
-from rest_framework_simplejwt.views import (TokenObtainPairView)
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('login/', views.MyTokenObtainPairView.as_view(), name='token_obtain_pair'),
@@ -18,4 +18,6 @@ urlpatterns = [
     path('delete/<str:pk>/', views.deleteUser, name='user-delete'),
 
 ]
+
+urlpatterns += staticfiles_urlpatterns()
 
