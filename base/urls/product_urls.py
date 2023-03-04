@@ -1,6 +1,7 @@
 from django.urls import path
 from base.views import product_views as views
-from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
 
@@ -15,6 +16,5 @@ urlpatterns = [
 
     path('update/<str:pk>/', views.updateProduct, name="product-update"),
     path('delete/<str:pk>/', views.deleteProduct, name="product-delete"),
-]
+]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 
-urlpatterns += staticfiles_urlpatterns()
